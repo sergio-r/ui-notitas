@@ -2,20 +2,20 @@
   "name": "ui-notitas",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hbaravalle/ui-notitas.git"
+    "url": "git+https://github.com/sergio-r/ui-notitas.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hbaravalle/ui-notitas/issues"
+    "url": "https://github.com/sergio-r/ui-notitas/issues"
   },
-  "homepage": "https://github.com/hbaravalle/ui-notitas#readme",
+  "homepage": "https://github.com/sergio-r/ui-notitas#readme",
   "dependencies": {
     "ejs": "^3.1.5",
     "express": "^4.17.1",
