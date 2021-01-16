@@ -21,23 +21,25 @@
 
     <main>
         <section class="new">
-            <form action="">
+            <form method="POST" action="/notes" >
                 <input type="text" name="title" placeholder="Título">
-                <textarea name="" id="" cols="30" placeholder="Añade una nota..."></textarea>
+                <textarea name="description" id="description" cols="30" placeholder="Añade una nota..."></textarea>
                 <button type="submit">Crear</button>
             </form>
         </section>
         <section class="list">
+            <% for (note of notes) { %> 
             <div class="note">
-                <h2>Un título</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, placeat sapiente! Accusantium sit quod quos.</p>
+                <h2><%= note.title %></h2>
+                <p><%= note.description %></p>
                 <div class="edit">
-                    <a href="#"><i class="far fa-edit"></i></a>
-                    <form action="">
+                    <a href="/notes/<%= note.id %>"><i class="far fa-edit"></i></a>
+                    <form action="/notes/<%= note.id %>?_method=DELETE" method="POST">
                         <button type="submit"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
+            <% } %> 
         </section>
     </main>
 

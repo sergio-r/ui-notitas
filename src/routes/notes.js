@@ -8,12 +8,12 @@ const router = express.Router();
 const notesController = require('../controllers/notesController')
 
 // - Create note
-router.get('/new', notesController.createForm);
+//router.post('/', notesController.create);
 router.post('/', notesController.create);
 
 // - Edit and delete note
-router.get('/:id', notesController.detail);
-router.put('/:id', notesController.update);
-router.delete('/:id', notesController.delete);
+router.get('/:note_id', notesController.detail);
+router.put('/:note_id', notesController.update);
+router.delete('/:note_id', notesController.delete);
 
 module.exports = router;
