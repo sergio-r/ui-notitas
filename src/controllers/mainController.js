@@ -1,11 +1,13 @@
 // MAIN CONTROLLER
 
-const fs = require('fs')
-const path = require('path')
+// Database
+const db = require('../database/models');
 
 module.exports = {
     index: function(req, res) {
-        let notes = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/notes.json'),'utf8'));
-        return res.render('index', { notes: notes })
+        db.Note.findAll()
+        .then((notes) => {
+            return res.render('index', { notes: notes })
+        });
     }
 }

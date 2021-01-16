@@ -1,11 +1,7 @@
 // NOTES CONTROLLER
 
-const fs = require('fs')
-const path = require('path')
-
-// Test Database
-let notes = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/notes.json'),'utf8'));
-let new_id = notes.length
+// Database
+const db = require('../database/models');
 
 module.exports = {
     create: function(req, res) {
@@ -14,7 +10,8 @@ module.exports = {
             title: req.body.title,
             description: req.body.description,
             created_at: "2020-01-16 00:00:00",
-            updated_at: "2020-01-16 05:00:00"
+            updated_at: "2020-01-16 05:00:00",
+            status: 1
         }
         notes.push(new_note);
         fs.writeFileSync(path.join( __dirname, '../database/notes.json'), JSON.stringify(notes, null, 4));
