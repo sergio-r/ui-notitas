@@ -5,41 +5,58 @@ const db = require('../database/models');
 
 module.exports = {
     create: function(req, res) {
-        let new_note = {
-            id: ++new_id,
+        db.Note.create({
             title: req.body.title,
             description: req.body.description,
-            created_at: "2020-01-16 00:00:00",
-            updated_at: "2020-01-16 05:00:00",
             status: 1
-        }
-        notes.push(new_note);
-        fs.writeFileSync(path.join( __dirname, '../database/notes.json'), JSON.stringify(notes, null, 4));
-        return res.redirect('/')
+        })
+        .then(() => {
+            res.redirect('/')
+        })
+        .catch((error) => {
+            return res.send('Note not created: ' + error)
+        });
     },
     detail: function(req, res) {
-        for (note of notes) {
-            if (note.id == req.params.note_id) {
-                return res.render('detail', { note: note })
-            }         
-        }
-        return res.send('Note not found')
+        db.Note.findByPk(req.params.note_id)
+        .then((note) => {
+            return res.render('detail', { note: note })
+        })
+        .catch((error) => {
+            return res.send('Note not found: ' + error)
+        });
     },
     update: function(req, res) {
-        console.log(req.body)
-        for (note of notes) {
-            if (note.id == req.params.note_id) {
-                note.title = req.body.title,
-                note.description = req.body.description,
-                note.updated_at = "2020-01-16 10:00:00"
-            }         
-        }
-        fs.writeFileSync(path.join( __dirname, '../database/notes.json'), JSON.stringify(notes, null, 4));
-        return res.redirect('/')
+        db.Note.update({
+            title: req.body.title,
+            description: req.body.description,
+        },
+        {
+            where: {
+                id: req.params.note_id
+            }
+        })
+        .then((note) => {
+            res.redirect('/')
+        })
+        .catch((error) => {
+            return res.send('Note not updated: ' + error)
+        });
     },
     delete: function(req, res) {
-        notes = notes.filter( n => n.id != req.params.note_id )
-        fs.writeFileSync(path.join( __dirname, '../database/notes.json'), JSON.stringify(notes, null, 4));
-        return res.redirect('/')
+        db.Note.update({
+           status: 0,
+        },
+        {
+            where: {
+                id: req.params.note_id
+            }
+        })
+        .then((note) => {
+            res.redirect('/')
+        })
+        .catch((error) => {
+            return res.send('Note not deleted: ' + error)
+        });
     }
 }

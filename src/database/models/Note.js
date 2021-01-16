@@ -12,11 +12,13 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.STRING
         },
-        created_at: {
-            type: DataTypes.DATE
+        createdAt: {
+            type: DataTypes.DATE,
+            field: 'created_at'
         },
-        updated_at: {
-            type: DataTypes.DATE
+        updatedAt: {
+            type: DataTypes.DATE,
+            field: 'updated_at'
         },
         status: {
             type: DataTypes.INTEGER
@@ -24,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     let config = {
         tableName: 'notes',
-        timestamps: false,
+        timestamps: true,
     }
 
     const Note = sequelize.define(alias, cols, config);
