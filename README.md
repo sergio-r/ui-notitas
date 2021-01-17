@@ -1,12 +1,16 @@
-# Ejercitación individual - Consignas
+# Ejercitación individual
 
-## Entrega → hasta el sábado 16/01 hasta las 23:59h
+## Entrega
+
+Hasta el sábado 16/01 hasta las 23:59 hs
 
 ## Repositorio con la interfaz gráfica para utilizar
 
 [https://github.com/hbaravalle/ui-notitas](https://github.com/hbaravalle/ui-notitas)
 
-## Método de entrega → Repo en GitHub
+## Método de entrega 
+
+Repo en GitHub
 
 ## Módulos
 
