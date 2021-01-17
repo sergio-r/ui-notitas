@@ -8,7 +8,6 @@ const router = express.Router();
 const notesController = require('../controllers/notesController')
 
 // - Create note
-//router.post('/', notesController.create);
 router.post('/', notesController.create);
 
 // - Edit and delete note
