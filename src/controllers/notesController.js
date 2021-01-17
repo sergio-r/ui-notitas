@@ -8,7 +8,7 @@ module.exports = {
         db.Note.create({
             title: req.body.title,
             description: req.body.description,
-            status: 1
+            status: 1,
         })
         .then(() => {
             res.redirect('/')

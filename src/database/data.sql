@@ -1,0 +1,3 @@
+INSERT INTO `notes` (`id`,`title`,`description`,`created_at`,`updated_at`,`status`) VALUES (DEFAULT,'Lista de compras','Azucar, yerba, granola, aceite, papel higiénico','2021-01-16 21:54:44','2021-01-16 21:57:27','1');
+INSERT INTO `notes` (`id`,`title`,`description`,`created_at`,`updated_at`,`status`) VALUES (DEFAULT,'Peliculas para ver','Pienso en el final, Ciudad de Dios, Trilogía del Señor de los Anillos','2021-01-16 21:55:22', '2021-01-16 21:57:27','1');
+INSERT INTO `notes` (`id`,`title`,`description`,`created_at`,`updated_at`,`status`) VALUES (DEFAULT,'No olvidar','Turno 22/01 con el dentista', '2021-01-16 21:55:38', '2021-01-16 21:57:27','1');
